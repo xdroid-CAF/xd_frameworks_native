@@ -56,6 +56,13 @@ uint64_t getValidUsageBits() {
             bits = bits | bit;
         }
         bits = bits | ((1 << 10) | (1 << 13) | (1 << 21) | (1 << 27));
+
+#ifdef ADDNL_GRALLOC_10_USAGE_BITS
+        uint64_t addnl_bits = static_cast<uint64_t>(ADDNL_GRALLOC_10_USAGE_BITS);
+        ALOGI("Adding additional valid usage bits: 0x%" PRIx64, addnl_bits);
+        bits = bits | addnl_bits;
+#endif
+
         return bits;
     }();
     return validUsageBits;
