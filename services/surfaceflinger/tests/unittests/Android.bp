@@ -28,6 +28,7 @@ cc_test {
         "libdisplayconfigaidl_defaults",
         "unfieddraw_defaults",
         "surfaceflinger_defaults",
+        "surfaceflinger_qcom_ext_defaults",
     ],
     test_suites: ["device-tests"],
     sanitize: {
@@ -172,7 +173,6 @@ cc_test {
         "android.hardware.graphics.composer@2.2-command-buffer",
         "android.hardware.graphics.composer@2.3-command-buffer",
         "android.hardware.graphics.composer@2.4-command-buffer",
-        "display_intf_headers",
         "libsurfaceflinger_headers",
     ],
 }

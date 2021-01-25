@@ -14,10 +14,12 @@ soong_config_module_type_import {
 
 libdisplayconfig_cc_defaults {
     name: "libcompositionengine_defaults",
-    defaults: ["surfaceflinger_defaults",
-               "libdisplayconfig_defaults",
-               "unfieddraw_defaults",
-              ],
+    defaults: [
+        "surfaceflinger_defaults",
+        "libdisplayconfig_defaults",
+        "unfieddraw_defaults",
+        "surfaceflinger_qcom_ext_defaults",
+    ],
     cflags: [
         "-DLOG_TAG=\"CompositionEngine\"",
         "-DATRACE_TAG=ATRACE_TAG_GRAPHICS",
@@ -54,7 +56,6 @@ libdisplayconfig_cc_defaults {
         "android.hardware.graphics.composer@2.3-command-buffer",
         "android.hardware.graphics.composer@2.4-command-buffer",
         "libsurfaceflinger_headers",
-        "display_intf_headers",
     ],
 }
 
