@@ -96,6 +96,7 @@ cc_defaults {
         "unfieddraw_defaults",
         "libdisplayconfigaidl_defaults",
         "surfaceflinger_qcom_ext_defaults",
+        "display_intf_headers_qssi"
     ],
     cflags: [
         "-DLOG_TAG=\"SurfaceFlinger\"",

@@ -29,6 +29,7 @@ cc_test {
         "unfieddraw_defaults",
         "surfaceflinger_defaults",
         "surfaceflinger_qcom_ext_defaults",
+        "display_intf_headers_qssi"
     ],
     test_suites: ["device-tests"],
     sanitize: {
