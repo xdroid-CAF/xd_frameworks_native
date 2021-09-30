@@ -85,6 +85,17 @@ bool VSyncPredictor::addVsyncTimestamp(nsecs_t timestamp) {
         } else {
             mKnownTimestamp = timestamp;
         }
+
+        // VSR could detect incongruent samples as part of re-sync during refresh rate change due to
+        // latency in the new refresh rate to take effect in hardware even though HWC reports
+        // the latest vsync period. Reset the timestamp history in such cases and cache the latest
+        // timestamp at index zero.
+        if (mTimestamps.size() < kMinimumSamplesForPrediction) {
+            mTimestamps.clear();
+            mLastTimestampIndex = 0;
+            mTimestamps.push_back(timestamp);
+            mLastTimestampIndex = next(mLastTimestampIndex);
+        }
         return false;
     }
 
