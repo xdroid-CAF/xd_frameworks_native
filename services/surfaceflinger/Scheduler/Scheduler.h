@@ -53,6 +53,7 @@ public:
                                    scheduler::RefreshRateConfigEvent) = 0;
     virtual void repaintEverythingForHWC() = 0;
     virtual void kernelTimerChanged(bool expired) = 0;
+    virtual nsecs_t getRefreshRateFromHWC() = 0;
 };
 
 class IPhaseOffsetControl {

@@ -371,9 +371,9 @@ void Scheduler::resyncAndRefresh() {
     }
 
     ATRACE_CALL();
-    const auto& refreshRate = mRefreshRateConfigs.getCurrentRefreshRate();
     mSchedulerCallback.repaintEverythingForHWC();
-    resyncToHardwareVsync(true /* makeAvailable */, refreshRate.getVsyncPeriod(), true);
+    resyncToHardwareVsync(true /* makeAvailable */,
+                          mSchedulerCallback.getRefreshRateFromHWC(), true);
     mDisplayIdle = false;
 }
 
@@ -384,7 +384,7 @@ void Scheduler::resync() {
     const nsecs_t last = mLastResyncTime.exchange(now);
 
     if (now - last > kIgnoreDelay) {
-        resyncToHardwareVsync(false, mRefreshRateConfigs.getCurrentRefreshRate().getVsyncPeriod());
+        resyncToHardwareVsync(false, mSchedulerCallback.getRefreshRateFromHWC());
     }
 }
 
