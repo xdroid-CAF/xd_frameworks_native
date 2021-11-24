@@ -93,6 +93,7 @@ private:
     void changeRefreshRate(const RefreshRate&, ConfigEvent) override {}
     void repaintEverythingForHWC() override {}
     void kernelTimerChanged(bool /*expired*/) override {}
+    nsecs_t getRefreshRateFromHWC() override { return 0; }
 };
 
 } // namespace android
