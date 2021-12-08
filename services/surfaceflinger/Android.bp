@@ -64,12 +64,12 @@ soong_config_module_type {
 
 cc_defaults {
     name: "libdisplayconfigaidl_defaults",
+    defaults: ["surfaceflinger_qcom_display_intf"],
     cflags: [
        "-DAIDL_DISPLAY_CONFIG_ENABLED"
     ],
     shared_libs: [
        "libbinder_ndk",
-       "vendor.qti.hardware.display.config-V4-ndk_platform",
     ],
 }
 
